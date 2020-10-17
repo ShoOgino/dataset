@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   Copyright (C) 2011, 2018 Red Hat, Inc.
+
+   This program and the accompanying materials are made
+   available under the terms of the Eclipse Public License 2.0
+   which is available at https://www.eclipse.org/legal/epl-2.0/
+  
+   SPDX-License-Identifier: EPL-2.0
+-->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.eclipse.linuxtools</groupId>
+    <artifactId>linuxtools-parent</artifactId>
+    <version>8.1.0-SNAPSHOT</version>
+  </parent>
+
+  <groupId>org.eclipse.linuxtools.valgrind</groupId>
+  <artifactId>linuxtools-valgrind-parent</artifactId>
+  <packaging>pom</packaging>
+
+  <name>Linux Tools Valgrind Parent</name>
+
+  <licenses>
+    <license>
+      <name>Eclipse Public License v2.0</name>
+      <comments>
+        This program and the accompanying materials are made
+        available under the terms of the Eclipse Public License 2.0
+        which is available at https://www.eclipse.org/legal/epl-2.0/
+  
+        SPDX-License-Identifier: EPL-2.0
+      </comments>
+    </license>
+  </licenses>
+
+  <modules>
+    <module>org.eclipse.linuxtools.valgrind.cachegrind</module>
+    <module>org.eclipse.linuxtools.valgrind.cachegrind.tests</module>
+    <module>org.eclipse.linuxtools.valgrind.core</module>
+    <module>org.eclipse.linuxtools.valgrind.doc</module>
+    <module>org.eclipse.linuxtools.valgrind.helgrind</module>
+    <module>org.eclipse.linuxtools.valgrind.helgrind.tests</module>
+    <module>org.eclipse.linuxtools.valgrind.launch</module>
+    <module>org.eclipse.linuxtools.valgrind.massif</module>
+    <module>org.eclipse.linuxtools.valgrind.massif.tests</module>
+    <module>org.eclipse.linuxtools.valgrind.memcheck</module>
+    <!-- <module>org.eclipse.linuxtools.valgrind.memcheck.tests</module> -->
+    <module>org.eclipse.linuxtools.valgrind.remote-feature</module>
+    <module>org.eclipse.linuxtools.valgrind.tests</module>
+    <module>org.eclipse.linuxtools.valgrind.ui</module>
+    <module>org.eclipse.linuxtools.valgrind.ui.tests</module>
+    <module>org.eclipse.linuxtools.valgrind.ui.editor</module>
+    <module>org.eclipse.linuxtools.valgrind-feature</module>
+    <module>org.eclipse.linuxtools.valgrind.core.tests</module>
+  </modules>
+
+</project>

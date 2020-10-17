@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.core.contenttype.contentTypes">
+      <content-type
+            base-type="org.eclipse.core.runtime.text"
+            file-extensions="supp"
+            id="org.eclipse.linuxtools.valgrind.editor.content-type"
+            name="%content-type.name.0"
+            priority="high">
+      </content-type>
+   </extension>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editorContentTypeBinding
+            contentTypeId="org.eclipse.linuxtools.valgrind.editor.content-type"
+            editorId="org.eclipse.ui.genericeditor.GenericEditor">
+      </editorContentTypeBinding>
+   </extension>
+	<extension point="org.eclipse.ui.genericeditor.presentationReconcilers">
+		<presentationReconciler 
+			class="org.eclipse.linuxtools.internal.valgrind.ui.editor.SuppPresentationReconciler" 
+			contentType="org.eclipse.linuxtools.valgrind.editor.content-type">
+		</presentationReconciler>
+	</extension>
+	<extension point="org.eclipse.ui.genericeditor.contentAssistProcessors">
+		<contentAssistProcessor 
+			class="org.eclipse.linuxtools.internal.valgrind.ui.editor.SuppressionsContentAssistProcessor" 
+			contentType="org.eclipse.linuxtools.valgrind.editor.content-type">
+		</contentAssistProcessor>
+	</extension>
+	<extension point="org.eclipse.ui.genericeditor.icons">
+		<icon contentType="org.eclipse.linuxtools.valgrind.editor.content-type" icon="icons/valgrind-supp-icon.png" />
+	</extension>
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <wizard
+            category="org.eclipse.linuxtools.valgrind.ui.editor.wizards.category"
+            class="org.eclipse.linuxtools.internal.valgrind.ui.editor.wizards.NewSuppressionWizard"
+            icon="icons/valgrind-supp-icon.png"
+            id="org.eclipse.linuxtools.valgrind.ui.editor.wizard"
+            name="%wizard.name.0"
+            project="false">
+         <description>
+            %wizard.description.0
+         </description>
+      </wizard>
+      <category
+            id="org.eclipse.linuxtools.valgrind.ui.editor.wizards.category"
+            name="%category.name.0">
+      </category>
+   </extension>
+   <extension
+         point="org.eclipse.ui.themes">
+      <themeElementCategory
+            id="org.eclipse.linuxtools.valgrind.editor.presentation"
+            label="Valgrind Suppression files editor">
+      </themeElementCategory>
+      <colorDefinition
+            categoryId="org.eclipse.linuxtools.valgrind.editor.presentation"
+            id="org.eclipse.linuxtools.valgrind.ediotr.color.default"
+            label="Default"
+            value="0,0,0">
+      </colorDefinition>
+      <colorDefinition
+            categoryId="org.eclipse.linuxtools.valgrind.editor.presentation"
+            id="org.eclipse.linuxtools.valgrind.editor.color.tool"
+            label="Tool"
+            value="153,122,0">
+      </colorDefinition>
+      <colorDefinition
+            categoryId="org.eclipse.linuxtools.valgrind.editor.presentation"
+            id="org.eclipse.linuxtools.valgrind.editor.color.supp_type"
+            label="SUPP Type"
+            value="0,153,122">
+      </colorDefinition>
+      <colorDefinition
+            categoryId="org.eclipse.linuxtools.valgrind.editor.presentation"
+            id="org.eclipse.linuxtools.valgrind.editor.color.comment"
+            label="Comment"
+            value="0,99,166">
+      </colorDefinition>
+      <colorDefinition
+            categoryId="org.eclipse.linuxtools.valgrind.editor.presentation"
+            id="org.eclipse.linuxtools.valgrind.editor.color.context"
+            label="Context"
+            value="122,0,153">
+      </colorDefinition>
+   </extension>
+
+</plugin>

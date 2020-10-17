@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<!--
+   Copyright (c) 2010, 2018 Red Hat, Inc.
+    
+   This program and the accompanying materials are made
+   available under the terms of the Eclipse Public License 2.0
+   which is available at https://www.eclipse.org/legal/epl-2.0/
+  
+   SPDX-License-Identifier: EPL-2.0
+
+   Contributors:
+       Alexander Kurtakov (Red Hat) - initial API and implementation
+ -->
+<plugin>
+
+    <extension-point id="parserContribution"
+        name="%extension-point.name"
+        schema="schema/parserContribution.exsd"/>
+    <extension-point id="formatterContribution" name="%extension-point.name.0" schema="schema/formatterContribution.exsd"/>
+    <extension-point id="editorContribution" name="%extension-point.name.1" schema="schema/editorContribution.exsd"/>
+
+    <extension
+          point="org.eclipse.ui.contexts">
+       <context
+             name="%editor.name"
+             id="org.eclipse.linuxtools.changelog.core.changelogEditorScope"
+             parentId="org.eclipse.ui.textEditorScope">
+       </context>
+    </extension>
+
+    <extension
+          point="org.eclipse.ui.commands">
+
+        <category
+            name="%category.name"
+            description="%category.description"
+            id="org.eclipse.linuxtools.changelog">
+        </category>
+
+        <command
+        categoryId="org.eclipse.linuxtools.changelog"
+        description="%insertCLEntryDesc"
+        id="org.eclipse.linuxtools.changelog.core.actions.KeyActionCommand"
+        name="%insertCLEntry">
+        </command>
+  <command
+        categoryId="org.eclipse.linuxtools.changelog"
+        description="%command.description"
+        id="org.eclipse.linuxtools.changelog.core.preparechangelog"
+        name="%command.name"/>
+  <command
+        categoryId="org.eclipse.linuxtools.changelog"
+        description="%command.description.0"
+        id="org.eclipse.linuxtools.changelog.core.prepareCommit"
+        name="%command.name.0"/>
+  <command
+        categoryId="org.eclipse.linuxtools.changelog"
+        description="%command.description.1"
+        id="org.eclipse.linuxtools.changelog.core.formatChangeLog"
+        name="%command.name.1"/>
+  <command
+        categoryId="org.eclipse.linuxtools.changelog"
+        description="%command.description.2"
+        id="org.eclipse.linuxtools.changelog.core.preparechangelog2"
+        name="%command.name.2">
+  </command>
+    </extension>
+
+    <extension point = "org.eclipse.ui.preferencePages">
+        <page
+            id="org.eclipse.linuxtools.changelog.core.Page1"
+            class="org.eclipse.linuxtools.internal.changelog.core.ChangeLogPreferencesPage"
+            name="%prefTitle">
+           </page>
+    </extension>
+
+
+    <extension
+        point="org.eclipse.linuxtools.changelog.core.formatterContribution">
+        <formatter
+              inFile="false"
+              class="org.eclipse.linuxtools.internal.changelog.core.formatters.GNUFormat"
+              id="org.eclipse.linuxtools.changelog.GNUFormat"
+              name="%gnuFormatter">
+              <fileName name="ChangeLog" />
+        </formatter>
+    </extension>
+    <extension
+         point="org.eclipse.core.contenttype.contentTypes">
+      <content-type
+            base-type="org.eclipse.core.runtime.text"
+            file-names="ChangeLog"
+            id="org.eclipse.linuxtools.changelog.editor.content-type"
+            name="%content-type.name"
+            priority="high">
+      </content-type>
+    </extension>
+    <extension
+          id="org.eclipse.linuxtools.changelog.core.editor"
+          point="org.eclipse.ui.editors">
+       <editor
+             class="org.eclipse.linuxtools.internal.changelog.core.editors.ChangeLogEditor"
+             contributorClass="org.eclipse.ui.texteditor.BasicTextEditorActionContributor"
+             default="true"
+             filenames="ChangeLog"
+             icon="icons/file_obj.gif"
+             id="org.eclipse.linuxtools.changelog.editor"
+             name="%editor.name">
+         <contentTypeBinding
+               contentTypeId="org.eclipse.linuxtools.changelog.editor.content-type">
+         </contentTypeBinding>
+       </editor>
+    </extension>
+    <extension
+         point="org.eclipse.ui.genericeditor.presentationReconcilers">
+      <presentationReconciler
+            class="org.eclipse.linuxtools.internal.changelog.core.editors.GNUPresentationReconciler"
+            contentType="org.eclipse.linuxtools.changelog.editor.content-type">
+      </presentationReconciler>
+    </extension>
+    <extension
+          point="org.eclipse.linuxtools.changelog.core.editorContribution">
+       <editor
+             class="org.eclipse.linuxtools.internal.changelog.core.editors.GNUEditorConfiguration"
+             id="org.eclipse.linuxtools.changelog.core.gnueditor"
+             name="%gnuEditorConfig"/>
+    </extension>
+    <extension
+          point="org.eclipse.ui.navigator.viewer">
+       <viewerActionBinding viewerId="org.eclipse.team.cvs.ui.workspaceSynchronization">
+          <includes>
+             <actionExtension pattern="org.eclipse.linuxtools.changelog.core.ui.ChangeLogActioniProvider"/>
+          </includes>
+       </viewerActionBinding>
+    </extension>
+    <extension
+          point="org.eclipse.ui.navigator.navigatorContent">
+       <actionProvider
+             class="org.eclipse.linuxtools.internal.changelog.core.ui.ChangeLogActionProvider"
+             id="org.eclipse.linuxtools.changelog.core.ui.ChangeLogActioniProvider">
+          <enablement>
+             <adapt type="org.eclipse.core.resources.mapping.ResourceMapping"/>
+          </enablement>
+       </actionProvider>
+    </extension>
+    <extension
+          point="org.eclipse.ui.bindings">
+       <key
+             commandId="org.eclipse.linuxtools.changelog.core.actions.KeyActionCommand"
+             contextId="org.eclipse.ui.textEditorScope"
+             schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+             sequence="Ctrl+Alt+C"/>
+       <key
+             commandId="org.eclipse.linuxtools.changelog.core.actions.KeyActionCommand"
+             contextId="org.eclipse.compare.compareEditorScope"
+             schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+             sequence="Ctrl+Alt+C"/>
+       <scheme
+             id="org.eclipse.linuxtools.changelog.keyscheme.default"
+             name="%scheme.name"/>
+       <key
+             commandId="org.eclipse.linuxtools.changelog.core.preparechangelog"
+             contextId="org.eclipse.ui.contexts.window"
+             schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+             sequence="Ctrl+Alt+P"/>
+       <key
+             commandId="org.eclipse.linuxtools.changelog.core.preparechangelog2"
+             contextId="org.eclipse.ui.textEditorScope"
+             schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+             sequence="Ctrl+Alt+P" />
+       <key
+             commandId="org.eclipse.linuxtools.changelog.core.preparechangelog2"
+             contextId="org.eclipse.compare.compareEditorScope"
+             schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+             sequence="Ctrl+Alt+P"/>
+       <key
+             commandId="org.eclipse.linuxtools.changelog.core.prepareCommit"
+             contextId="org.eclipse.ui.textEditorScope"
+             schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+             sequence="Ctrl+Alt+V"/>
+       <key
+             commandId="org.eclipse.linuxtools.changelog.core.formatChangeLog"
+             contextId="org.eclipse.linuxtools.changelog.core.changelogEditorScope"
+             schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+             sequence="ESC Ctrl+F"/>
+    </extension>
+    <extension
+          point="org.eclipse.ui.handlers">
+       <handler
+             class="org.eclipse.linuxtools.internal.changelog.core.actions.PrepareChangelogKeyHandler"
+             commandId="org.eclipse.linuxtools.changelog.core.preparechangelog"/>
+       <handler
+             class="org.eclipse.linuxtools.internal.changelog.core.actions.PrepareChangelogKeyHandler"
+             commandId="org.eclipse.linuxtools.changelog.core.preparechangelog2"/>
+       <handler
+             class="org.eclipse.linuxtools.internal.changelog.core.actions.InsertChangeLogKeyHandler"
+             commandId="org.eclipse.linuxtools.changelog.core.actions.KeyActionCommand">
+         <enabledWhen>
+            <not>
+                <count value="0" />
+            </not>
+         </enabledWhen>
+         <activeWhen>
+            <with variable="activePart">
+                <instanceof value="org.eclipse.ui.IEditorPart" />
+            </with>
+         </activeWhen>
+       </handler>
+       <handler
+             class="org.eclipse.linuxtools.internal.changelog.core.actions.PrepareCommitHandler"
+             commandId="org.eclipse.linuxtools.changelog.core.prepareCommit"/>
+       <handler
+             class="org.eclipse.linuxtools.internal.changelog.core.actions.FormatChangeLogAction"
+             commandId="org.eclipse.linuxtools.changelog.core.formatChangeLog"/>
+    </extension>
+    <extension
+          id="org.eclipse.linuxtools.changelog.documentSetup"
+          point="org.eclipse.core.filebuffers.documentSetup">
+       <participant
+             class="org.eclipse.linuxtools.internal.changelog.core.editors.ChangeLogDocumentSetupParticipant"
+             fileNames="ChangeLog">
+       </participant>
+    </extension>
+    <extension point="org.eclipse.core.runtime.preferences">
+        <initializer
+            class="org.eclipse.linuxtools.internal.changelog.core.ChangelogPreferenceInitializer" />
+    </extension>
+    <extension
+  		point="org.eclipse.ui.workbench.texteditor.hyperlinkDetectors">
+  		<hyperlinkDetector
+   			id="org.eclipse.linuxtools.changelog.GNUHyperlinkDetector"
+    		targetId="org.eclipse.ui.DefaultTextEditor"
+    		class="org.eclipse.linuxtools.internal.changelog.core.editors.GNUHyperlinkDetector"
+    		name="%hyperlinkDetector.name">
+  		</hyperlinkDetector>
+	</extension>
+<extension point="org.eclipse.ui.menus">
+  <menuContribution locationURI="popup:#TextEditorContext?endof=group.edit">
+        <command commandId="org.eclipse.linuxtools.changelog.core.formatChangeLog">
+            <visibleWhen
+               checkEnabled="false">
+               <and>
+                       <with variable="activeEditorId">
+                     <equals value="org.eclipse.linuxtools.changelog.core.editor6"/>
+                       </with>
+                   </and>
+            </visibleWhen>
+        </command>
+  </menuContribution>
+  <menuContribution
+        locationURI="menu:edit">
+     <command
+           commandId="org.eclipse.linuxtools.changelog.core.actions.KeyActionCommand"
+           style="push"
+           tooltip="%clEntry">
+     </command>
+  </menuContribution>
+  <menuContribution
+        locationURI="menu:project">
+     <command
+           commandId="org.eclipse.linuxtools.changelog.core.preparechangelog"
+           style="push"
+           tooltip="%prepChangeLog.tooltip">
+        <visibleWhen
+           checkEnabled="false">
+              <with variable="selection">
+                 <iterate operator="and" ifEmpty="false">
+                    <or>
+                       <adapt
+                             type="java.lang.Object">
+                       </adapt>
+                           <adapt type="org.eclipse.core.resources.IResource">
+                              <test
+                                       property="org.eclipse.core.resources.projectNature"
+                                       value="org.eclipse.cdt.core.cnature"/>
+                       </adapt>
+                       <adapt type="org.eclipse.core.resources.IResource">
+                          <test
+                                property="org.eclipse.core.resources.projectNature"
+                                value="org.eclipse.jdt.core.javanature"/>
+                       </adapt>
+                    </or>
+                    <or>
+                           <adapt type="org.eclipse.core.resources.IResource">
+                        <test
+                           args="org.eclipse.team.core.repository"
+                           property="org.eclipse.core.resources.projectPersistentProperty"
+                           value="org.eclipse.team.svn.core.svnnature"/>
+                        </adapt>
+                           <adapt type="org.eclipse.core.resources.IResource">
+                          <test
+                              args="org.eclipse.team.core.repository"
+                           property="org.eclipse.core.resources.projectPersistentProperty"
+                           value="org.eclipse.team.cvs.core.cvsnature"/>
+                        </adapt>
+                           <adapt type="org.eclipse.core.resources.IResource">
+                          <test
+                           args="org.eclipse.team.core.repository"
+                           property="org.eclipse.core.resources.projectPersistentProperty"
+                           value="org.tigris.subversion.subclipse.core.svnnature"/>
+                        </adapt>
+                           <adapt type="org.eclipse.core.resources.IResource">
+                          <test
+                           args="org.eclipse.team.core.repository"
+                           property="org.eclipse.core.resources.projectPersistentProperty"
+                           value="org.eclipse.egit.core.GitProvider"/>
+                        </adapt>
+                       </or>
+               </iterate>
+               </with>
+            </visibleWhen>
+     </command>
+  </menuContribution>
+</extension>
+ <extension
+         point="org.eclipse.ui.themes">
+      <themeElementCategory
+            id="org.eclipse.linuxtools.changelog.editor.presentation"
+            label="Changelog files editor">
+      </themeElementCategory>
+      <colorDefinition
+            categoryId="org.eclipse.linuxtools.changelog.editor.presentation"
+            id="org.eclipse.linuxtools.changelog.editor.color.file_name"
+            label="File name"
+            value="128,0,0">
+      </colorDefinition>
+      <colorDefinition
+            categoryId="org.eclipse.linuxtools.changelog.editor.presentation"
+            id="org.eclipse.linuxtools.changelog.editor.color.func_name"
+            label="Function name"
+            value="0,128,0">
+      </colorDefinition>
+      <colorDefinition
+            categoryId="org.eclipse.linuxtools.changelog.editor.presentation"
+            id="org.eclipse.linuxtools.changelog.editor.color.text"
+            label="Text"
+            value="0,0,0">
+      </colorDefinition>
+      <colorDefinition
+            categoryId="org.eclipse.linuxtools.changelog.editor.presentation"
+            id="org.eclipse.linuxtools.changelog.editor.color.email"
+            label="Email"
+            value="0,0,128">
+      </colorDefinition>
+   </extension>
+
+</plugin>

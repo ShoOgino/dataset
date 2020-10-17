@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   Copyright (C) 2011, 2018 Red Hat, Inc.
+
+   This program and the accompanying materials are made
+   available under the terms of the Eclipse Public License 2.0
+   which is available at https://www.eclipse.org/legal/epl-2.0/
+  
+   SPDX-License-Identifier: EPL-2.0
+-->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.eclipse.linuxtools</groupId>
+    <artifactId>linuxtools-parent</artifactId>
+    <version>8.1.0-SNAPSHOT</version>
+  </parent>
+
+  <groupId>org.eclipse.linuxtools.rpm</groupId>
+  <artifactId>linuxtools-rpm-parent</artifactId>
+  <packaging>pom</packaging>
+
+  <name>Linux Tools RPM Parent</name>
+
+  <modules>
+    <module>org.eclipse.linuxtools.rpm.core</module>
+    <module>org.eclipse.linuxtools.rpm.core.tests</module>
+    <module>org.eclipse.linuxtools.rpm-feature</module>
+    <module>org.eclipse.linuxtools.rpm.rpmlint</module>
+    <module>org.eclipse.linuxtools.rpm.ui</module>
+    <module>org.eclipse.linuxtools.rpm.ui.editor</module>
+    <module>org.eclipse.linuxtools.rpm.ui.editor.doc</module>
+    <module>org.eclipse.linuxtools.rpm.ui.editor.tests</module>
+    <module>org.eclipse.linuxtools.rpmstubby</module>
+    <module>org.eclipse.linuxtools.rpm.createrepo</module>
+    <module>org.eclipse.linuxtools.rpm.createrepo.tests</module>
+  </modules>
+
+</project>

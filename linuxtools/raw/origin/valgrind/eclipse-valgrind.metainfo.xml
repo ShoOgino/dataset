@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   Copyright (C) 2015, 2018 Red Hat, Inc.
+
+   This program and the accompanying materials are made
+   available under the terms of the Eclipse Public License 2.0
+   which is available at https://www.eclipse.org/legal/epl-2.0/
+  
+   SPDX-License-Identifier: EPL-2.0
+-->
+<component type="addon">
+ <id>eclipse-valgrind</id>
+ <metadata_license>CC-BY-SA-3.0</metadata_license>
+ <project_license>EPL-2.0</project_license>
+ <extends>eclipse.desktop</extends>
+ <name>Valgrind</name>
+ <summary>Linux Tools Eclipse plug-ins integrating Valgrind profiling tools with CDT</summary>
+ <url type="homepage">http://www.eclipse.org/linuxtools/projectPages/valgrind/</url>
+ <updatecontact>rgrunber@redhat.com</updatecontact>
+</component>

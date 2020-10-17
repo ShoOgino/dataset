@@ -1,0 +1,32 @@
+/*******************************************************************************
+ * Copyright (c) 2009, 2018 Red Hat, Inc.
+ *
+ * This program and the accompanying materials are made
+ * available under the terms of the Eclipse Public License 2.0
+ * which is available at https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
+ *
+ * Contributors:
+ *    Elliott Baron <ebaron@redhat.com> - initial API and implementation
+ *******************************************************************************/
+package org.eclipse.linuxtools.valgrind.launch;
+
+import java.io.IOException;
+
+import org.eclipse.core.runtime.IPath;
+
+/**
+ * Interface consulted by Launch Delegate for a directory
+ * to hold output files.
+ */
+public interface IValgrindOutputDirectoryProvider {
+
+    /**
+     * Obtains a directory to store Valgrind output files.
+     * @return the absolute path to this directory
+     * @throws IOException If problem occured trying to retrieve the path.
+     */
+    IPath getOutputPath() throws IOException;
+
+}

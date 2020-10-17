@@ -1,0 +1,69 @@
+/*******************************************************************************
+ * Copyright (c) 2009, 2018 STMicroelectronics and others.
+ * 
+ * This program and the accompanying materials are made
+ * available under the terms of the Eclipse Public License 2.0
+ * which is available at https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
+ *
+ * Contributors:
+ *    Xavier Raynaud <xavier.raynaud@st.com> - initial API and implementation
+ *******************************************************************************/
+package org.eclipse.linuxtools.internal.gcov.view;
+
+import java.text.NumberFormat;
+
+import org.eclipse.linuxtools.dataviewers.abstractviewers.AbstractSTDataViewersField;
+import org.eclipse.linuxtools.dataviewers.charts.provider.IChartField;
+import org.eclipse.linuxtools.internal.gcov.model.TreeElement;
+
+public class FieldInstrumentedLines extends AbstractSTDataViewersField implements IChartField {
+
+    @Override
+    public String getColumnHeaderText() {
+        return Messages.FieldInstrumentedLines_column_header;
+    }
+
+    @Override
+    public String getValue(Object obj) {
+        int v = getInstrumentedLines(obj);
+        return NumberFormat.getInstance().format(v);
+    }
+
+    @Override
+    public String getToolTipText(Object element) {
+        int v = getInstrumentedLines(element);
+        String s = NumberFormat.getInstance().format(v);
+        s += Messages.FieldInstrumentedLines_column_tooltip;
+        if (v > 1)
+            s += "s"; //$NON-NLS-1$
+        return s;
+    }
+
+    @Override
+    public int compare(Object obj1, Object obj2) {
+        int i1 = getInstrumentedLines(obj1);
+        int i2 = getInstrumentedLines(obj2);
+        if (i1 > i2) {
+            return 1;
+        }
+        if (i1 < i2) {
+            return -1;
+        }
+        return 0;
+    }
+
+    private int getInstrumentedLines(Object o) {
+        if (o instanceof TreeElement) {
+            return ((TreeElement) o).getInstrumentedLines();
+        }
+        return 0;
+    }
+
+    @Override
+    public Integer getNumber(Object obj) {
+        return getInstrumentedLines(obj);
+    }
+
+}

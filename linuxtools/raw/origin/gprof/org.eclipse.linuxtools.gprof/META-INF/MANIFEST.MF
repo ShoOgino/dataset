@@ -1,0 +1,22 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %bundleName
+Bundle-SymbolicName: org.eclipse.linuxtools.gprof;singleton:=true
+Bundle-Version: 5.1.0.qualifier
+Bundle-Activator: org.eclipse.linuxtools.internal.gprof.Activator
+Bundle-Vendor: %bundleProvider
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.core.variables,
+ org.eclipse.ui,
+ org.eclipse.ui.ide,
+ org.eclipse.debug.ui,
+ org.eclipse.cdt.core,
+ org.eclipse.linuxtools.dataviewers,
+ org.eclipse.linuxtools.binutils,
+ org.eclipse.linuxtools.dataviewers.charts
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Bundle-Localization: plugin
+Export-Package: 
+ org.eclipse.linuxtools.internal.gprof.view;x-friends:="org.eclipse.linuxtools.gprof.launch"
+Automatic-Module-Name: org.eclipse.linuxtools.gprof

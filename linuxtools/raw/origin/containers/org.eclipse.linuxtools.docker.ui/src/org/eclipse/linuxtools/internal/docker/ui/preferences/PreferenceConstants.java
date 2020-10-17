@@ -1,0 +1,42 @@
+/*******************************************************************************
+ * Copyright (c) 2014,2018 Red Hat.
+ * 
+ * This program and the accompanying materials are made
+ * available under the terms of the Eclipse Public License 2.0
+ * which is available at https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
+ *
+ * Contributors:
+ *     Red Hat - Initial Contribution
+ *******************************************************************************/
+package org.eclipse.linuxtools.internal.docker.ui.preferences;
+
+/**
+ * Constant definitions for plug-in preferences
+ */
+public class PreferenceConstants {
+
+	// Time in seconds to wait before automatically refreshing the Containers
+	// view (min 5)
+	public static final String REFRESH_TIME = "containerRefreshTime"; //$NON-NLS-1$
+	public static final String RESTART_WAIT_TIME = "containerRestartWaitTime"; //$NON-NLS-1$
+	
+	public static final String AUTOLOG_ON_START = "autoLogOnStart"; //$NON-NLS-1$
+	public static final String LOG_TIMESTAMP = "logTimestamp"; //$NON-NLS-1$
+
+	/** the installation directory for Docker Machine. */
+	public static final String DOCKER_MACHINE_INSTALLATION_DIRECTORY = "dockerMachineInstallDir"; //$NON-NLS-1$
+
+	/** last registry account used for pushing/pulling images. **/
+	public static final String LAST_REGISTRY_ACCOUNT = "lastRegistryAccount"; //$NON-NLS-1$
+
+	/**
+	 * the installation directory for the VM driver (eg, VirtualBox).
+	 */
+	public static final String VM_DRIVER_INSTALLATION_DIRECTORY = "vmDriverInstallDir"; //$NON-NLS-1$
+	
+	/** the installation directory for Docker Compose. */
+	public static final String DOCKER_COMPOSE_INSTALLATION_DIRECTORY = "dockerComposeInstallDir"; //$NON-NLS-1$
+
+}

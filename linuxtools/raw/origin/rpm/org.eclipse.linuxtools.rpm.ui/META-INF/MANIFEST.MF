@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %Bundle-Name.0
+Bundle-SymbolicName: org.eclipse.linuxtools.rpm.ui;singleton:=true
+Bundle-Version: 1.1.0.qualifier
+Bundle-Vendor: %Bundle-Vendor.0
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Require-Bundle: org.eclipse.ui.ide,
+ org.eclipse.jface.text,
+ org.eclipse.core.runtime,
+ org.eclipse.ui,
+ org.eclipse.linuxtools.rpm.core,
+ org.eclipse.ui.console,
+ org.eclipse.debug.ui;bundle-version="3.6.0"
+Export-Package: 
+ org.eclipse.linuxtools.rpm.ui
+Bundle-Activator: org.eclipse.linuxtools.internal.rpm.ui.Activator
+Automatic-Module-Name: org.eclipse.linuxtools.rpm.ui

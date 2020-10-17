@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %bundleName
+Bundle-SymbolicName: org.eclipse.linuxtools.gcov.test
+Bundle-Version: 4.1.1.qualifier
+Bundle-Vendor: %bundleProvider
+Require-Bundle: org.junit;bundle-version="4.10.0",
+ org.eclipse.linuxtools.gcov.launch;bundle-version="1.0.0",
+ org.eclipse.cdt.managedbuilder.gnu.ui;bundle-version="8.0.0",
+ org.eclipse.linuxtools.profiling.tests,
+ org.eclipse.ui.navigator.resources,
+ org.eclipse.ui.navigator
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Bundle-Localization: plugin
+Fragment-Host: org.eclipse.linuxtools.gcov.core
+Automatic-Module-Name: org.eclipse.linuxtools.gcov.test

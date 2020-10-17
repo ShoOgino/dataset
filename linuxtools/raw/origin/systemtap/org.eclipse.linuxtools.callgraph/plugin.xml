@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+
+      <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension
+            targetID="org.eclipse.cdt.ui.CPerspective">
+         <view
+               id="org.eclipse.linuxtools.callgraph.callgraphview"
+               minimized="false"
+               relationship="stack"
+               relative="org.eclipse.ui.console.ConsoleView">
+         </view>
+      </perspectiveExtension>
+   </extension>
+
+
+      <extension
+            id="org.eclipse.linuxtools.callgraph.callgraphview"
+            name="%extension.name"
+            point="org.eclipse.ui.views">
+      <view
+            category="org.eclipse.cdt.ui.views"
+            class="org.eclipse.linuxtools.internal.callgraph.CallgraphView"
+            icon="icons/genericregister_obj.gif"
+            id="org.eclipse.linuxtools.callgraph.callgraphview"
+            name="%view.name"
+            restorable="true">
+      </view>
+   </extension>
+
+    <extension
+          id="org.eclipse.linuxtools.callgraph.graphparser"
+          name="%extension.name.0"
+          point="org.eclipse.linuxtools.callgraph.core.parser">
+       <parser
+             class="org.eclipse.linuxtools.internal.callgraph.StapGraphParser"
+             realtime="true">
+       </parser>
+    </extension>
+</plugin>

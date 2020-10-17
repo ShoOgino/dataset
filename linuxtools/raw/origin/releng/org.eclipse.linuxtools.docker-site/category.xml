@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site
+      mirrorsURL="http://www.eclipse.org/downloads/download.php?file=/linuxtools/updates-docker-nightly/site.xml&amp;format=xml">
+   <description url="http://download.eclipse.org/linuxtools/updates-docker-nightly">
+      Nightly builds of Linux Tools Docker Tooling project.
+   </description>
+   <feature url="features/org.eclipse.linuxtools.docker.feature_0.0.0.qualifier.jar" id="org.eclipse.linuxtools.docker.feature" version="0.0.0">
+      <category name="Linux Tools"/>
+   </feature>
+   <feature url="features/org.eclipse.linuxtools.jdt.docker.launcher.feature_0.0.0.qualifier.jar" id="org.eclipse.linuxtools.jdt.docker.launcher.feature" version="0.0.0">
+      <category name="Linux Tools"/>
+   </feature>
+   <feature url="features/org.eclipse.linuxtools.docker.editor.ls.feature_0.0.0.qualifier.jar" id="org.eclipse.linuxtools.docker.editor.ls.feature" version="0.0.0">
+      <category name="Linux Tools"/>
+   </feature>
+   <feature url="features/org.eclipse.linuxtools.docker.tests.feature_0.0.0.qualifier.jar" id="org.eclipse.linuxtools.docker.tests.feature" version="0.0.0">
+      <category name="Linux Tools"/>
+   </feature>
+   <feature url="features/org.eclipse.linuxtools.vagrant.feature_0.0.0.qualifier.jar" id="org.eclipse.linuxtools.vagrant.feature" version="0.0.0">
+      <category name="Linux Tools"/>
+   </feature>
+   <feature url="features/org.eclipse.linuxtools.docker.feature.source_0.0.0.qualifier.jar" id="org.eclipse.linuxtools.docker.feature.source" version="0.0.0">
+      <category name="Linux Tools Sources"/>
+   </feature>
+   <feature url="features/org.eclipse.linuxtools.jdt.docker.launcher.feature.source_0.0.0.qualifier.jar" id="org.eclipse.linuxtools.jdt.docker.launcher.feature.source" version="0.0.0">
+      <category name="Linux Tools Sources"/>
+   </feature>
+   <feature url="features/org.eclipse.linuxtools.docker.tests.feature.source_0.0.0.qualifier.jar" id="org.eclipse.linuxtools.docker.tests.feature.source" version="0.0.0">
+      <category name="Linux Tools Sources"/>
+   </feature>
+   <feature url="features/org.eclipse.linuxtools.vagrant.feature.source_0.0.0.qualifier.jar" id="org.eclipse.linuxtools.vagrant.feature.source" version="0.0.0">
+      <category name="Linux Tools Sources"/>
+   </feature>
+   <!-- Reddeer Dependencies -->
+   <iu id="org.eclipse.reddeer.common" version="0.0.0">
+	<category name="Docker Test Dependencies"/>
+   </iu>
+   <iu id="org.eclipse.reddeer.core" version="0.0.0">
+	<category name="Docker Test Dependencies"/>
+   </iu>
+   <iu id="org.eclipse.reddeer.direct" version="0.0.0">
+	<category name="Docker Test Dependencies"/>
+   </iu>
+   <iu id="org.eclipse.reddeer.eclipse" version="0.0.0">
+	<category name="Docker Test Dependencies"/>
+   </iu>
+   <iu id="org.eclipse.reddeer.jdt.junit" version="0.0.0">
+	<category name="Docker Test Dependencies"/>
+   </iu>
+   <iu id="org.eclipse.reddeer.jface" version="0.0.0">
+	<category name="Docker Test Dependencies"/>
+   </iu>
+   <iu id="org.eclipse.reddeer.junit.extension" version="0.0.0">
+	<category name="Docker Test Dependencies"/>
+   </iu>
+   <iu id="org.eclipse.reddeer.junit" version="0.0.0">
+	<category name="Docker Test Dependencies"/>
+   </iu>
+   <iu id="org.eclipse.reddeer.requirements" version="0.0.0">
+	<category name="Docker Test Dependencies"/>
+   </iu>
+   <iu id="org.eclipse.reddeer.swt" version="0.0.0">
+	<category name="Docker Test Dependencies"/>
+   </iu>
+   <iu id="org.eclipse.reddeer.ui" version="0.0.0">
+	<category name="Docker Test Dependencies"/>
+   </iu>
+   <iu id="org.eclipse.reddeer.uiforms" version="0.0.0">
+	<category name="Docker Test Dependencies"/>
+   </iu>
+   <iu id="org.eclipse.reddeer.workbench" version="2.0.0">
+	<category name="Docker Test Dependencies"/>
+   </iu>
+   <iu id="org.eclipse.reddeer.workbench.core" version="0.0.0">
+	<category name="Docker Test Dependencies"/>
+   </iu>
+   <iu id="org.mockito" version="0.0.0">
+	<category name="Docker Test Dependencies"/>
+   </iu>
+   <iu id="org.assertj" version="0.0.0">
+	<category name="Docker Test Dependencies"/>
+   </iu>
+   <iu id="org.objenesis" version="0.0.0">
+	<category name="Docker Test Dependencies"/>
+   </iu>
+
+   <!-- Docker Editor Dependencies -->
+   <iu id="org.eclipse.lsp4e" version="0.0.0">
+        <category name="Docker Editor Dependencies"/>
+   </iu>
+   <iu id="org.eclipse.wildwebdeveloper.embedder.node" version="0.0.0">
+        <category name="Docker Editor Dependencies"/>
+   </iu>
+
+   <!-- Orbit Dependencies -->
+   <iu id="org.mandas.docker-client" version="0.0.0">
+        <category name="Docker Client Dependencies"/>
+   </iu>
+   <iu id="org.mandas.docker-client.source" version="0.0.0">
+        <category name="Docker Client Dependencies"/>
+   </iu>
+
+   <iu id="org.apache.httpcomponents.httpcore" version="0.0.0">
+        <category name="Docker Client Dependencies"/>
+   </iu>
+   <iu id="org.apache.httpcomponents.httpclient" version="0.0.0">
+        <category name="Docker Client Dependencies"/>
+   </iu>
+   <iu id="com.fasterxml.jackson.core.jackson-annotations" version="0.0.0">
+        <category name="Docker Client Dependencies"/>
+   </iu>
+   <iu id="com.fasterxml.jackson.core.jackson-core" version="0.0.0">
+        <category name="Docker Client Dependencies"/>
+   </iu>
+   <iu id="com.fasterxml.jackson.core.jackson-databind" version="0.0.0">
+        <category name="Docker Client Dependencies"/>
+   </iu>
+   <iu id="com.fasterxml.jackson.datatype.jackson-datatype-guava" version="0.0.0">
+        <category name="Docker Client Dependencies"/>
+   </iu>
+   <iu id="com.fasterxml.jackson.jaxrs.jackson-jaxrs-base" version="0.0.0">
+        <category name="Docker Client Dependencies"/>
+   </iu>
+   <iu id="com.fasterxml.jackson.jaxrs.jackson-jaxrs-json-provider" version="0.0.0">
+        <category name="Docker Client Dependencies"/>
+   </iu>
+   <iu id="javax.ws.rs" version="0.0.0">
+        <category name="Docker Client Dependencies"/>
+   </iu>
+   <iu id="jakarta.xml.bind" version="0.0.0">
+        <category name="Docker Client Dependencies"/>
+   </iu>
+   <iu id="javax.xml.stream" version="0.0.0">
+        <category name="Docker Client Dependencies"/>
+   </iu>
+   <iu id="javax.annotation" version="0.0.0">
+        <category name="Docker Client Dependencies"/>
+   </iu>
+   <iu id="com.github.jnr.jffi" version="0.0.0">
+        <category name="Docker Client Dependencies"/>
+   </iu>
+   <iu id="com.github.jnr.jffi.native" version="0.0.0">
+        <category name="Docker Client Dependencies"/>
+   </iu>
+   <iu id="com.github.jnr.constants" version="0.0.0">
+        <category name="Docker Client Dependencies"/>
+   </iu>
+   <iu id="com.github.jnr.enxio" version="0.0.0">
+        <category name="Docker Client Dependencies"/>
+   </iu>
+   <iu id="com.github.jnr.ffi" version="0.0.0">
+        <category name="Docker Client Dependencies"/>
+   </iu>
+   <iu id="com.github.jnr.posix" version="0.0.0">
+        <category name="Docker Client Dependencies"/>
+   </iu>
+   <iu id="com.github.jnr.unixsocket" version="0.0.0">
+        <category name="Docker Client Dependencies"/>
+   </iu>
+   <iu id="com.github.jnr.x86asm" version="0.0.0">
+        <category name="Docker Client Dependencies"/>
+   </iu>
+   <iu id="org.bouncycastle.bcprov" version="0.0.0">
+        <category name="Docker Client Dependencies"/>
+   </iu>
+   <iu id="org.bouncycastle.bcpkix" version="0.0.0">
+        <category name="Docker Client Dependencies"/>
+   </iu>
+   <iu id="org.glassfish.hk2.api" version="0.0.0">
+        <category name="Docker Client Dependencies"/>
+   </iu>
+   <iu id="org.glassfish.hk2.locator" version="0.0.0">
+        <category name="Docker Client Dependencies"/>
+   </iu>
+   <iu id="org.glassfish.hk2.osgi-resource-locator" version="0.0.0">
+        <category name="Docker Client Dependencies"/>
+   </iu>
+   <iu id="org.glassfish.hk2.utils" version="0.0.0">
+        <category name="Docker Client Dependencies"/>
+   </iu>
+   <iu id="org.glassfish.jersey.apache.connector" version="0.0.0">
+        <category name="Docker Client Dependencies"/>
+   </iu>
+   <iu id="org.glassfish.jersey.core.jersey-client" version="0.0.0">
+        <category name="Docker Client Dependencies"/>
+   </iu>
+   <iu id="org.glassfish.jersey.core.jersey-common" version="0.0.0">
+        <category name="Docker Client Dependencies"/>
+   </iu>
+   <iu id="org.glassfish.jersey.media.jersey-media-json-jackson" version="0.0.0">
+        <category name="Docker Client Dependencies"/>
+   </iu>
+   <iu id="org.glassfish.jersey.ext.entityfiltering" version="0.0.0">
+        <category name="Docker Client Dependencies"/>
+   </iu>
+   <iu id="org.glassfish.jersey.core.jersey-server" version="0.0.0">
+        <category name="Docker Client Dependencies"/>
+   </iu>
+   <iu id="org.glassfish.jersey.containers.servlet.core" version="0.0.0">
+        <category name="Docker Client Dependencies"/>
+   </iu>
+   <iu id="org.glassfish.jersey.containers.servlet" version="0.0.0">
+        <category name="Docker Client Dependencies"/>
+   </iu>
+   <iu id="org.glassfish.jersey.inject.jersey-hk2" version="0.0.0">
+        <category name="Docker Client Dependencies"/>
+   </iu>
+   <iu id="javassist" version="0.0.0">
+        <category name="Docker Client Dependencies"/>
+   </iu>
+   <iu id="com.google.guava" version="0.0.0">
+        <category name="Docker Client Dependencies"/>
+   </iu>
+   <iu id="com.google.auth.google-auth-library-credentials" version="0.0.0">
+        <category name="Docker Client Dependencies"/>
+   </iu>
+   <iu id="com.google.auth.oauth2-http" version="0.0.0">
+        <category name="Docker Client Dependencies"/>
+   </iu>
+   <iu id="com.google.http-client.google-http-client" version="0.0.0">
+        <category name="Docker Client Dependencies"/>
+   </iu>
+   <iu id="com.google.http-client.google-http-client-jackson2" version="0.0.0">
+        <category name="Docker Client Dependencies"/>
+   </iu>
+   <iu id="com.google.auto.value.auto-value-annotations" version="0.0.0">
+        <category name="Docker Client Dependencies"/>
+   </iu>
+   <iu id="com.google.j2objc.j2objc-annotations" version="0.0.0">
+        <category name="Docker Client Dependencies"/>
+   </iu>
+   <iu id="io.grpc.grpc-context" version="0.0.0">
+        <category name="Docker Client Dependencies"/>
+   </iu>
+   <iu id="io.opencensus.opencensus-api" version="0.0.0">
+        <category name="Docker Client Dependencies"/>
+   </iu>
+   <iu id="io.opencensus.opencensus-contrib-http-util" version="0.0.0">
+        <category name="Docker Client Dependencies"/>
+   </iu>
+   <iu id="org.slf4j.api" version="0.0.0">
+        <category name="Docker Client Dependencies"/>
+   </iu>
+   <iu id="org.aopalliance" version="0.0.0">
+        <category name="Docker Client Dependencies"/>
+   </iu>
+   <iu id="org.objectweb.asm" version="0.0.0">
+        <category name="Docker Client Dependencies"/>
+   </iu>
+   <iu id="org.objectweb.asm.tree" version="0.0.0">
+        <category name="Docker Client Dependencies"/>
+   </iu>
+   <iu id="org.objectweb.asm.util" version="0.0.0">
+        <category name="Docker Client Dependencies"/>
+   </iu>
+   <iu id="org.objectweb.asm.analysis" version="0.0.0">
+        <category name="Docker Client Dependencies"/>
+   </iu>
+   <iu id="org.apache.commons.codec" version="0.0.0">
+        <category name="Docker Client Dependencies"/>
+   </iu>
+   <iu id="org.apache.commons.compress" version="0.0.0">
+        <category name="Docker Client Dependencies"/>
+   </iu>
+   <category-def name="Linux Tools" label="Linux Tools">
+      <description>
+         Eclipse Linux Tools Docker Tooling
+      </description>
+   </category-def>
+   <category-def name="Linux Tools Sources" label="Linux Tools Sources">
+      <description>
+         Eclipse Linux Tools Docker Tooling Sources
+      </description>
+   </category-def>
+   <category-def name="Docker Client Dependencies" label="Docker Client Dependencies">
+      <description>
+         Eclipse Linux Tools Docker Client Dependencies
+      </description>
+   </category-def>
+   <category-def name="Docker Editor Dependencies" label="Docker Editor Dependencies">
+      <description>
+         Eclipse Linux Tools Docker Editor Dependencies
+      </description>
+   </category-def>
+   <category-def name="Docker Test Dependencies" label="Docker Test Dependencies">
+      <description>
+         Eclipse Linux Tools Docker Integration Test Dependencies
+      </description>
+   </category-def>
+</site>

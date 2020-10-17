@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+    <extension
+         point="org.eclipse.linuxtools.valgrind.launch.valgrindTools">
+      <tool
+            delegate="org.eclipse.linuxtools.internal.valgrind.memcheck.MemcheckLaunchDelegate"
+            id="org.eclipse.linuxtools.valgrind.launch.memcheck"
+            name="memcheck"
+            page="org.eclipse.linuxtools.internal.valgrind.memcheck.MemcheckToolPage">
+      </tool>
+   </extension>
+   <extension
+         point="org.eclipse.linuxtools.valgrind.ui.valgrindToolViews">
+      <view
+            class="org.eclipse.linuxtools.internal.valgrind.memcheck.MemcheckViewPart"
+            definitionId="org.eclipse.linuxtools.valgrind.launch.memcheck">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.linuxtools.profiling.launch.launchProvider">
+      <provider
+            delegate="org.eclipse.linuxtools.internal.valgrind.launch.ValgrindLaunchConfigurationDelegate"
+            description="%memcheckLaunchConfiguration.description.0"
+            id="org.eclipse.linuxtools.profiling.provider.valgrind.memcheck"
+            information="%memcheckLaunchConfiguration.information.0"
+            name="%memcheckLaunchConfiguration.name.0"
+            priority="1"
+            shortcut="org.eclipse.linuxtools.internal.valgrind.launch.ValgrindLaunchShortcut"
+            tabgroup="org.eclipse.linuxtools.internal.valgrind.memcheck.MemcheckLaunchConfigurationTabGroup"
+            type="memory">
+      </provider>
+   </extension>
+</plugin>

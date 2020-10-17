@@ -1,0 +1,109 @@
+/*******************************************************************************
+ * Copyright (c) 2015, 2018 Red Hat Inc. and others.
+ * 
+ * This program and the accompanying materials are made
+ * available under the terms of the Eclipse Public License 2.0
+ * which is available at https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
+ *
+ * Contributors:
+ *     Red Hat - Initial Contribution
+ *******************************************************************************/
+package org.eclipse.linuxtools.internal.docker.ui.wizards;
+
+import org.eclipse.jface.layout.GridDataFactory;
+import org.eclipse.jface.layout.GridLayoutFactory;
+import org.eclipse.jface.wizard.WizardPage;
+import org.eclipse.linuxtools.internal.docker.core.DockerImage;
+import org.eclipse.linuxtools.internal.docker.ui.SWTImagesFactory;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.ModifyListener;
+import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.Text;
+
+/**
+ * A {@link WizardPage} to tag a given Docker image.
+ */
+public class ImageTagPage extends WizardPage {
+
+	private final static String NAME = "ImageTag.name"; //$NON-NLS-1$
+	private final static String TITLE = "ImageTag.title"; //$NON-NLS-1$
+	private final static String DESC = "ImageTag.desc"; //$NON-NLS-1$
+	private final static String TAG_LABEL = "ImageTagName.label"; //$NON-NLS-1$
+	private final static String TAG_TOOLTIP = "ImageTagName.toolTip"; //$NON-NLS-1$
+
+	private Text tagText;
+
+	private String tag;
+
+	/**
+	 * Constructor
+	 * 
+	 * @param imageName
+	 *            the name of the image
+	 */
+	public ImageTagPage(final String imageName) {
+		super(WizardMessages.getString(NAME));
+		setTitle(WizardMessages.getString(TITLE));
+		setDescription(WizardMessages.getFormattedString(DESC, imageName));
+		setImageDescriptor(SWTImagesFactory.DESC_WIZARD);
+	}
+
+	public String getTag() {
+		return tag;
+	}
+
+	private ModifyListener Listener = e -> validate();
+
+	private void validate() {
+		boolean complete = true;
+		boolean error = false;
+
+		String tagField = tagText.getText().trim();
+
+		if (tagField.length() == 0) {
+			complete = false;
+		}
+
+		String repo = DockerImage.extractRepo(tagField);
+
+		if (repo.matches(".*[A-Z]+.*")) { //$NON-NLS-1$
+			setErrorMessage(
+					WizardMessages.getString("ImageTagUppercaseError.msg")); //$NON-NLS-1$
+			error = true;
+		}
+		if (!error) {
+			setErrorMessage(null);
+			tag = tagField;
+		}
+		setPageComplete(complete && !error);
+	}
+
+	@Override
+	public void createControl(Composite parent) {
+		parent.setLayout(new GridLayout());
+		final Composite container = new Composite(parent, SWT.NONE);
+		GridLayoutFactory.fillDefaults().numColumns(2).margins(6, 6)
+				.applyTo(container);
+		GridDataFactory.fillDefaults().align(SWT.FILL, SWT.CENTER).span(1, 1)
+				.grab(true, false).applyTo(container);
+
+		final Label repoLabel = new Label(container, SWT.NULL);
+		repoLabel.setText(WizardMessages.getString(TAG_LABEL));
+		GridDataFactory.fillDefaults().align(SWT.FILL, SWT.CENTER)
+				.grab(false, false).applyTo(repoLabel);
+
+		tagText = new Text(container, SWT.BORDER | SWT.SINGLE);
+		tagText.addModifyListener(Listener);
+		tagText.setToolTipText(WizardMessages.getString(TAG_TOOLTIP));
+		GridDataFactory.fillDefaults().align(SWT.FILL, SWT.CENTER)
+				.grab(true, false).applyTo(tagText);
+
+		setControl(container);
+		setPageComplete(false);
+	}
+
+}
